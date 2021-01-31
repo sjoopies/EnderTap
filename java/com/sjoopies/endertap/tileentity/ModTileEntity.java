@@ -2,6 +2,7 @@ package com.sjoopies.endertap.tileentity;
 
 import javax.annotation.Nonnull;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
@@ -29,8 +30,8 @@ public class ModTileEntity extends TileEntity {
 	}
 
 	@Override
-	public void read(CompoundNBT tag) {
-		super.read(tag);
+	public void read(BlockState state,CompoundNBT tag) {
+		super.read(state, tag);
 		readPacketNBT(tag);
 	}
 

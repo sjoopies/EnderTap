@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryEvents {
+	
 	@SubscribeEvent
 	public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
 		event.getRegistry().registerAll(ModBlocks.blockRegisters());
@@ -20,13 +21,11 @@ public class RegistryEvents {
 
 	@SubscribeEvent
 	public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
-		// event.getRegistry().registerAll(ECItems.itemRegisters());
 		event.getRegistry().registerAll(ModBlocks.itemBlockRegisters());
 	}
 
 	@SubscribeEvent
 	public static void registerTE(RegistryEvent.Register<TileEntityType<?>> evt) {
-
 		evt.getRegistry().registerAll(ModTileEntities.TERegisters());
 	}
 }

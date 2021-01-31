@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.util.ResourceLocation;
 
 public class ModBlock extends Block {
+	
 	public ModBlock(Properties properties, String registryName) {
 		super(properties);
 		init(registryName);

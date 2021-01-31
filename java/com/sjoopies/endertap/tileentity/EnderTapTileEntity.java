@@ -74,13 +74,13 @@ public class EnderTapTileEntity extends ModTileEntity implements ITickableTileEn
 	}
 
 	public void readPacketNBT(CompoundNBT cmp) {
-		if (cmp.getUniqueId("playerID") != null)
+		if (cmp == null) {
+			return;
+		}
+		if (cmp.get("playerID") != null && cmp.getUniqueId("playerID") != null)
 			playerID = cmp.getUniqueId("playerID");
 		playerUsername = cmp.getString("playerUsername");
 		setItemHandler(false);
-		if (getPlayer() != null) {
-
-		}
 	}
 
 	public boolean hasPlayer() {

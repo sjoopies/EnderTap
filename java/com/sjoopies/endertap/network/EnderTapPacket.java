@@ -9,6 +9,7 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.fml.network.NetworkEvent;
 
 public class EnderTapPacket {
@@ -29,16 +30,16 @@ public class EnderTapPacket {
 		buf.writeBlockPos(msg.pos);
 	}
 
+	
 	public static void handle(final EnderTapPacket message, final Supplier<NetworkEvent.Context> ctx) {
 		if (ctx.get().getDirection().getReceptionSide().isServer()) {
 			ctx.get().setPacketHandled(true);
 			return;
 		}
-
+		// server -> client
 		ctx.get().enqueueWork(() -> {
 
-			ClientWorld world = Minecraft.getInstance().world;
-			TileEntity te = world.getTileEntity(message.pos);
+			TileEntity te = Minecraft.getInstance().world.getTileEntity(message.pos);
 			if (te != null && te instanceof EnderTapTileEntity) {
 				EnderTapTileEntity t = (EnderTapTileEntity) te;
 				t.setPlayerName(message.str);

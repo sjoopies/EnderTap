@@ -6,9 +6,9 @@ import com.sjoopies.endertap.tileentity.EnderTapTileEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.Matrix4f;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
+import net.minecraft.util.math.vector.Matrix4f;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -29,7 +29,8 @@ public class EnderTapTileEntityRenderer extends TileEntityRenderer<EnderTapTileE
 			ms.pop();
 		}
 	}
-
+	
+	
 	protected void renderName(EnderTapTileEntity tile, String displayNameIn, MatrixStack matrixStackIn,
 			IRenderTypeBuffer bufferIn, int packedLightIn) {
 		double d0 = Minecraft.getInstance().getRenderManager().getDistanceToCamera(tile.getPos().getX() + 0.5,
@@ -41,7 +42,9 @@ public class EnderTapTileEntityRenderer extends TileEntityRenderer<EnderTapTileE
 			matrixStackIn.translate(0.5D, (double) f, 0.5D);
 			matrixStackIn.rotate(Minecraft.getInstance().getRenderManager().getCameraOrientation());
 			matrixStackIn.scale(-0.025F, -0.025F, 0.025F);
+			
 			Matrix4f matrix4f = matrixStackIn.getLast().getMatrix();
+			
 			float f1 = Minecraft.getInstance().gameSettings.getTextBackgroundOpacity(0.25F);
 			int j = (int) (f1 * 255.0F) << 24;
 			FontRenderer fontrenderer = Minecraft.getInstance().getRenderManager().getFontRenderer();

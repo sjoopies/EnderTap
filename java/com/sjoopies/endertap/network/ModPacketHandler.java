@@ -40,7 +40,8 @@ public class ModPacketHandler {
 	}
 
 	public static void sendToNearby(World world, Entity e, Object toSend) {
-		sendToNearby(world, new BlockPos(e), toSend);
+		
+		sendToNearby(world, e.getPosition(), toSend);
 	}
 
 	public static void sendTo(ServerPlayerEntity playerMP, Object toSend) {

@@ -12,8 +12,7 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder(Reference.MODID)
 public class ModBlocks {
 
-	private static Block.Properties ENDER_TAP_MAT = Block.Properties.create(Material.ROCK).hardnessAndResistance(20f,
-			500f);
+	private static Block.Properties ENDER_TAP_MAT = Block.Properties.create(Material.ROCK).hardnessAndResistance(20f, 500f);
 
 	public static Block ender_tap = new EnderTapBlock(ENDER_TAP_MAT, "ender_tap");
 

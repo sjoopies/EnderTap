@@ -17,29 +17,11 @@ public class EnderTapMod {
 
 	public EnderTapMod() {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {
 		ModPacketHandler.registerPackets();
-	}
-
-	private void doClientStuff(final FMLClientSetupEvent event) {
-	}
-
-	private void enqueueIMC(final InterModEnqueueEvent event) {
-	}
-
-	private void processIMC(final InterModProcessEvent event) {
-	}
-
-	@SubscribeEvent
-	public void onServerStarting(FMLServerStartingEvent event) {
 	}
 
 }
