@@ -1,26 +1,27 @@
 package com.sjoopies.endertap.block;
 
 import com.sjoopies.endertap.Reference;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Material;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.ResourceLocation;
 
-public class ModBlock extends Block {
-	
-	public ModBlock(Properties properties, String registryName) {
-		super(properties);
-		init(registryName);
-	}
+public abstract class ModBlock extends BaseEntityBlock {
 
-	public ModBlock(String registryName, Material material) {
-		super(Block.Properties.create(material));
-		init(registryName);
-	}
+    public ModBlock(Properties properties, String registryName) {
+        super(properties);
+        init(registryName);
+    }
 
-	private void init(String registryName) {
-		setRegistryName(new ResourceLocation(Reference.MODID, registryName));
+    public ModBlock(String registryName, Material material) {
+        super(Block.Properties.of(material));
+        init(registryName);
+    }
 
-	}
+    private void init(String registryName) {
+        setRegistryName(new ResourceLocation(Reference.MODID, registryName));
+
+    }
 
 }
